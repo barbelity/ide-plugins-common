@@ -1,7 +1,7 @@
 package com.jfrog.ide.common.filter;
 
 import com.google.common.collect.Sets;
-import com.jfrog.ide.common.ide.DependenciesTreeTestsBase;
+import com.jfrog.ide.common.DependenciesTreeTestsBase;
 import org.jfrog.build.extractor.scan.DependenciesTree;
 import org.jfrog.build.extractor.scan.Issue;
 import org.jfrog.build.extractor.scan.License;
