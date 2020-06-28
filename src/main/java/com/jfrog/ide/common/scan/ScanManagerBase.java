@@ -159,9 +159,14 @@ public abstract class ScanManagerBase {
 
         try {
             // Create Xray client and check version
-            Xray xrayClient = XrayClient.create(xrayServerConfig.getUrl(), xrayServerConfig.getUsername(),
-                    xrayServerConfig.getPassword(), xrayServerConfig.isNoHostVerification(),
-                    xrayServerConfig.getKeyStoreProvider(), xrayServerConfig.getProxyConfForTargetUrl(""));
+            Xray xrayClient = XrayClient.newBuilder()
+                    .setUrl(xrayServerConfig.getUrl())
+                    .setUsername(xrayServerConfig.getUsername())
+                    .setPassword(xrayServerConfig.getPassword())
+                    .setNoHostVerification(xrayServerConfig.isNoHostVerification())
+                    .setKeyStoreProvider(xrayServerConfig.getKeyStoreProvider())
+                    .setProxyConfig(xrayServerConfig.getProxyConfForTargetUrl(""))
+                    .build();
             if (!isXrayVersionSupported(xrayClient)) {
                 return;
             }
